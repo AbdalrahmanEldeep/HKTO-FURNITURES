@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { Footer } from '../components/Footer'
 import { Header } from '../components/Header'
 import { Nav } from '../components/Nav'
 import { localNavigation } from '../context/context'
@@ -17,6 +18,7 @@ export const RouteComp = () => {
             <Route path='/' element={<Home/>}/>
             <Route path='/login' element={<Login/>} />
          </Routes>
+         <Footer/>
       </BrowserRouter> 
     </>
   )
