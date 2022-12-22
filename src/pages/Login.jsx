@@ -1,9 +1,21 @@
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
+import { Banner } from '../components/Banner'
+import { Brrands } from '../components/Brrands'
+import { LoginForm } from '../components/LoginForm'
+import { localNavigation } from '../context/context'
+
 
 export const Login = () => {
+  const [navigation,setNavigation] = useContext(localNavigation);
+
+  useEffect(() => {
+    setNavigation("none");
+  },[]);
   return (
-    <div>
-        <h1>Login</h1>
-    </div>
+    <>
+      <Banner head="MyAccount" title="Home" subtitle="MyAccount"/>
+      <LoginForm/>
+      <Brrands/>
+    </>
   )
 }

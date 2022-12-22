@@ -1,8 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { Home } from './pages/Home'
-import { RouteComp } from './routes/routeComp'
+import Context from './context/context'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 
-root.render(<RouteComp/>)
+root.render(<Context/>)

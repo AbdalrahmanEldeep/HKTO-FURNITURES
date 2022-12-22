@@ -4,14 +4,9 @@ import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import styled from 'styled-components'
 import Logo from "../../public/assets/Logo.svg";
 import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
+import { Link } from 'react-router-dom';
 
-const navigation = [
-  { name: 'Home', href: '#', current: true },
-  { name: 'Products', href: '#', current: false },
-  { name: 'Blog', href: '#', current: false },
-  { name: 'Shop', href: '#', current: false },
-  { name: 'Contact', href: '#', current: false },
-]
+
 
 const Container = styled.div`
     margin: 0 auto;
@@ -32,11 +27,20 @@ const SearchIcon = styled.div`
    color: #fff;
    cursor: pointer;
 `
+
+
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export  const  Header = () => {
+export  const  Header = ({val}) => {
+  const navigation =  [
+    { name: 'Home', href: '/', current: val == "Home" ? true : false},
+    { name: 'Products', href: '#', current: val == "Products" ? true : false },
+    { name: 'Blog', href: '#', current: val == "Blog" ? true : false },
+    { name: 'Shop', href: '#', current: val == "Shop" ? true : false },
+    { name: 'Contact', href: '#', current: val == "Contact" ? true : false },
+  ]
   return (
     <Disclosure as="nav" className="bg-gray-800 shadow">
         {({ open }) => (
@@ -71,9 +75,9 @@ export  const  Header = () => {
                 <div className="hidden sm:ml-6  lg:block">
                   <div className="flex  space-x-4">
                     {navigation.map((item) => (
-                      <a
+                      <Link
                         key={item.name}
-                        href={item.href}
+                        to={item.href}
                         className={classNames(
                           item.current ? ' text-main hover:text-dark' : 'text-gray-300 hover: hover:text-main',
                           'px-3 py-2 rounded-md text-sm font-medium'
@@ -81,7 +85,7 @@ export  const  Header = () => {
                         aria-current={item.current ? 'page' : undefined}
                       >
                         {item.name}
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 </div>
@@ -97,10 +101,9 @@ export  const  Header = () => {
           <Disclosure.Panel className="lg:hidden">
             <div className="space-y-1 px-2 pt-2 pb-3">
               {navigation.map((item) => (
-                <Disclosure.Button
+                <Link
                   key={item.name}
-                  as="a"
-                  href={item.href}
+                  to={item.href}
                   className={classNames(
                     item.current ? 'bg-main text-white' : 'text-gray-300 hover:bg-main hover:text-white',
                     'block px-3 py-2 rounded-md text-base font-medium'
@@ -108,7 +111,7 @@ export  const  Header = () => {
                   aria-current={item.current ? 'page' : undefined}
                 >
                   {item.name}
-                </Disclosure.Button>
+                </Link>
               ))}
             </div>
           </Disclosure.Panel>

@@ -8,6 +8,7 @@ import FavoriteRoundedIcon from '@mui/icons-material/FavoriteRounded';
 import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { Link } from 'react-router-dom';
 
 const Container = styled.header`
   width: 80%;
@@ -80,8 +81,10 @@ export const Nav = () => {
                         <li><Drop data={drop__1}/></li>
                         <li><Drop data={drop__2}/></li>
                         <li className='flex  gap-2 text-white'>
+                          <Link to="/login">
                             Login
                             <PersonRoundedIcon fontSize='small'/>
+                         </Link>
                         </li>
                         <li className='flex  gap-2 text-white'>
                             Wishlist
@@ -115,8 +118,10 @@ export const Nav = () => {
                     <li><Drop data={drop__1}/></li>
                     <li><Drop data={drop__2}/></li>
                     <li className='md:py-0 md:pl-0 flex gap-2 text-white py-6 pl-6'>
+                      <Link to="/login">
                         Login
                         <PersonRoundedIcon fontSize='small'/>
+                      </Link>
                     </li>
                     <li className='md:py-0 md:pl-0 flex  gap-2 text-white pl-6 py-5  '>
                         Wishlist
