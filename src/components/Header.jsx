@@ -45,7 +45,7 @@ export  const  Header = ({val}) => {
     <Disclosure as="nav" className="bg-gray-800 shadow">
         {({ open }) => (
         <>
-        <Container className=' md:w-4/5 w-full  '>
+        <Container className=' w-full  '>
           <div className=" mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
             <div className="relative flex h-16 items-center justify-between">
               <div className="absolute inset-y-0 left-0 flex items-center lg:hidden">
@@ -75,12 +75,12 @@ export  const  Header = ({val}) => {
                 <div className="hidden sm:ml-6  lg:block">
                   <div className="flex  space-x-4">
                     {navigation.map((item) => (
-                      <Link
+                      <Link 
                         key={item.name}
                         to={item.href}
                         className={classNames(
-                          item.current ? ' text-main hover:text-dark' : 'text-gray-300 hover: hover:text-main',
-                          'px-3 py-2 rounded-md text-sm font-medium'
+                          item.current ? ' text-main text-md hover:text-dark' : ' hover:hover:text-main',
+                          'px-3 text-md py-2 rounded-md font-medium'
                         )}
                         aria-current={item.current ? 'page' : undefined}
                       >
@@ -105,7 +105,7 @@ export  const  Header = ({val}) => {
                   key={item.name}
                   to={item.href}
                   className={classNames(
-                    item.current ? 'bg-main text-white' : 'text-gray-300 hover:bg-main hover:text-white',
+                    item.current ? 'bg-main text-white' : ' hover:bg-main hover:text-white',
                     'block px-3 py-2 rounded-md text-base font-medium'
                   )}
                   aria-current={item.current ? 'page' : undefined}

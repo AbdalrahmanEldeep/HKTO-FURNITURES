@@ -2,11 +2,12 @@
 module.exports = {
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
+    './node_modules/tw-elements/dist/js/**/*.js'
   ],
    theme: {
     colors:{
-      "main":"#FB2E86",
-      "primary":"#7E33E0",
+      "main":"#7E33E0",
+      "primary":"#FB2E86",
       "scandry":"#9096B2",
       "white":"#fff",
       "light":"#C2C5E1",
@@ -18,10 +19,9 @@ module.exports = {
       'main': ['"Josefin Sans"','sans-serif'],
       'primary': [ 'Lato sans-serif'],
     },
-    fontSize: {
-      ex:".8rem"
-    }
   },
-  plugins: [],
+  plugins: [
+    require('tw-elements/dist/plugin')
+  ],
 }
 
